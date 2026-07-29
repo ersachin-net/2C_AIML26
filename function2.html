@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            function sum ()
+            {
+                let age = parseInt(prompt("enter a value of age:"));
+
+                if(age>=18){
+                   let c =confirm("do you want to submit your vote");
+                   if (c)
+                   {
+                    alert("your response submitted");
+
+                   }
+                   else{
+                    alert("not submitted: thank you");
+                   }
+
+                }
+                else{
+                    alert("you are not eligible");
+                }
+            }
+               
+            
+        </script>
+    </head>
+    <body>
+       <input type="button" onclick="sum()" value="result">
+
+    </body>
+</html>
