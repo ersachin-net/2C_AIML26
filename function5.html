@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pattern</title>
     <script>
-        function Display(){
-            let num = parseInt(prompt("Enter your number: " ));
-            for(let i=0; i<num; i++){
-                for(let j=0; j<i; j++){
+        function Display() {
+            let num = parseInt(prompt("Enter a number"));
+
+            // Increasing Pattern
+            for(let i = 1; i <= num; i++) {
+                for(let j = 1; j <= i; j++) {
                     document.write("*");
                 }
-
                 document.write("<br>");
-                for(let i =3; i >= 1; i-- ){
-                    for(let j =i; j<=i; j++ ){
-                        
-                    }
+            }
+
+            // Decreasing Pattern
+            for(let i = num - 1; i >= 1; i--) {
+                for(let j = 1; j <= i; j++) {
+                    document.write("*");
                 }
-           }
+                document.write("<br>");
+            }
         }
     </script>
 </head>
 
 <body>
 
-    <input type="button" onclick="Display()" value="display">
+    <input type="button" value="Display" onclick="Display()">
 
 </body>
 </html>
