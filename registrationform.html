@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        Name:
+        <input type="text" id="name">
+        <span id="nameError"></span>
+        <br><br>
+
+        Email:
+        <input type="text" id="email">
+        <span id="emailError"></span>
+        <br><br>
+
+        Password:
+        <input type="password" id="password">
+        <span id="passwordError"></span>
+        <br><br>
+
+        Re-enter Password:
+        <input type="password" id="repassword">
+        <span id="repasswordError"></span>
+        <br><br>
+
+        Mobile:
+        <input type="text" id="mobile">
+        <span id="mobileError"></span>
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <script>
+
+        function validateForm() {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let repassword = document.getElementById("repassword").value;
+            let mobile = document.getElementById("mobile").value;
+
+            let valid = true;
+
+            // Name validation
+            if (name == "") {
+                document.getElementById("nameError").innerHTML =
+                    " Name is required";
+                valid = false;
+            }
+
+            // Email validation
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email == "") {
+                document.getElementById("emailError").innerHTML =
+                    " Email is required";
+                valid = false;
+            }
+            else if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerHTML =
+                    " Invalid email";
+                valid = false;
+            }
+
+            // Password validation
+            if (password == "") {
+                document.getElementById("passwordError").innerHTML =
+                    " Password is required";
+                valid = false;
+            }
+            else if (password.length < 6) {
+                document.getElementById("passwordError").innerHTML =
+                    " Minimum 6 characters";
+                valid = false;
+            }
+
+            // Re-enter password validation
+            if (repassword == "") {
+                document.getElementById("repasswordError").innerHTML =
+                    " Please re-enter password";
+                valid = false;
+            }
+            else if (password != repassword) {
+                document.getElementById("repasswordError").innerHTML =
+                    " Passwords do not match";
+                valid = false;
+            }
+
+            // Mobile validation
+            let mobilePattern = /^[0-9]{10}$/;
+
+            if (mobile == "") {
+                document.getElementById("mobileError").innerHTML =
+                    " Mobile number is required";
+                valid = false;
+            }
+            else if (!mobilePattern.test(mobile)) {
+                document.getElementById("mobileError").innerHTML =
+                    " Enter valid 10 digit number";
+                valid = false;
+            }
+
+            if (valid) {
+                alert("Registration Successful!");
+            }
+
+            return valid;
+        }
+
+    </script>
+
+</body>
+</html>
